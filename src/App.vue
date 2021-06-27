@@ -7,11 +7,18 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+import { baseApiUrl } from '@/global.js'
 
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  mounted() {
+    axios.get(`${baseApiUrl}/pokemon/graveler`).then(res => {
+      console.log(res);
+    })
   }
 }
 </script>
